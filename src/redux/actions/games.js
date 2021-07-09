@@ -75,7 +75,9 @@ export const loadGameById = (id) => async (dispatch) => {
 };
 
 export function createGame(newGame) {
-  return fbAxios.post("/games/create-game", newGame);
+  return fbAxios.post("/games/create-game", newGame).catch((error) => {
+    return Promise.reject(extractApiErrors(error.response || []));
+  });
 }
 
 export const updateGame = (id, gameData) => (dispatch) => {

@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { isFetchingReducer } from "./common";
 
 const initGamesReducer = () => {
-  const games = (state = [], action) => {
+  const allGames = (state = [], action) => {
     switch (action.type) {
       case "LOAD_GAMES_SUCCESS":
         return action.games;
@@ -12,7 +12,7 @@ const initGamesReducer = () => {
   };
   const isFetching = isFetchingReducer("games");
   return combineReducers({
-    games,
+    allGames,
     isFetching,
   });
 };
