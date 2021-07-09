@@ -1,9 +1,8 @@
 const User = require("../models/user");
 const Game = require("../models/game");
-// const { faCommentsDollar } = require("@fortawesome/free-solid-svg-icons");
 
 exports.getGames = async (req, res) => {
-  const { city } = await req.query;
+  const { city } = req.query;
 
   const query = city ? { city: city.toLowerCase() } : {};
 
@@ -246,7 +245,9 @@ exports.getHostingGames = async (req, res) => {
   const { user } = res.locals;
 
   try {
-    const games = await Game.find({ host: user });
+    const games = await Game.find({ host: user })
+      .populate("host", "_id image username")
+      .populate("participants", "_id image username");
     return res.json(games);
   } catch (error) {
     return res.mongoError(errors);
@@ -258,10 +259,9 @@ exports.getParticipateGames = async (req, res) => {
 
   try {
     const gamesIds = user.participating;
-    const games = await Game.find({ _id: { $in: gamesIds } }).populate(
-      "participants",
-      "-password -hosting -participating -email -createdAt"
-    );
+    const games = await Game.find({ _id: { $in: gamesIds } })
+      .populate("host", "_id image username")
+      .populate("participants", "_id image username");
     return res.json(games);
   } catch (error) {
     return res.mongoError(errors);
