@@ -1,0 +1,116 @@
+.form {
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding: 2rem;
+
+  border-top: 1px solid $color-secondary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-group {
+    width: 100%;
+    // max-width: 40rem;
+    padding-top: 2rem;
+    position: relative;
+    margin-bottom: 1.2rem;
+  }
+
+  &__input {
+    width: 100%;
+    color: $color-secondary;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1.25rem;
+    line-height: 1;
+    border-bottom: 1px solid $color-primary-light;
+    background-color: transparent;
+    transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+
+    &:focus {
+      box-shadow: 0 1px 0 0 $color-primary-light;
+      background-color: transparent;
+      color: $color-primary-light;
+    }
+
+    &:focus,
+    &.active-input {
+      + label {
+        font-size: 1.2rem;
+        transform: translateY(-2rem);
+        -webkit-transform: translateY(-2rem);
+        -moz-transform: translateY(-2rem);
+        -ms-transform: translateY(-2rem);
+        -o-transform: translateY(-2rem);
+
+        span {
+          opacity: 0;
+          transition: all 0.2s ease-in;
+        }
+      }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 2.5rem;
+    left: 1.25rem;
+    pointer-events: none;
+    transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+  }
+
+  &__textarea {
+    max-height: 50vh;
+  }
+
+  &-control {
+    font-size: 2.5rem;
+    &--search {
+      font-size: 2rem;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      &::placeholder {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &-not-registered {
+    font-size: 2rem;
+    &--link {
+      display: inline-block;
+      color: $color-secondary;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        text-decoration: none;
+        color: $color-primary-light;
+      }
+    }
+  }
+}
+
+.alert {
+  border: none;
+  margin: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  &-danger {
+    color: $color-danger;
+  }
+  &-success {
+    color: $color-success;
+    text-align: center;
+    font-size: 2.4rem;
+  }
+  &-message {
+    margin: 0;
+  }
+}

@@ -1,0 +1,111 @@
+.game-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-secondary;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 5px 0px rgba($color-primary-medium, 0.2);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+
+  &__link:link,
+  &__link:visited {
+    width: 100%;
+    text-decoration: none;
+    color: $color-primary-medium;
+  }
+  &__link:hover,
+  &__link:active {
+    cursor: pointer;
+  }
+}
+
+.card-heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+
+  &__participants {
+    display: flex;
+    justify-content: space;
+    align-items: center;
+
+    &--host {
+      margin-right: 0.5rem;
+    }
+    &--rest {
+      margin-right: 0.5rem;
+      height: 4rem;
+      width: 4rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      background-color: rgba($color-primary-light, 0.2);
+      border-radius: 100%;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      -ms-border-radius: 100%;
+      -o-border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &-image {
+      cursor: pointer;
+      height: 5rem;
+      width: 5rem;
+      margin-right: 1rem;
+      border: 1px solid rgba($color-primary-medium, 0.2);
+      border-radius: 100%;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      -ms-border-radius: 100%;
+      -o-border-radius: 100%;
+    }
+  }
+
+  &__location {
+    flex: 3;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.card-description {
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.card-tags {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 1.5rem;
+
+  border-top: 1px solid $color-primary-dark;
+}
+
+.tag {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+
+  &__description {
+    display: inline-block;
+    text-align: center;
+  }
+  &__icon {
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+  }
+}

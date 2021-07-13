@@ -1,0 +1,14 @@
+.map {
+  &-container {
+    height: 60vh;
+    border-radius: 3rem;
+  }
+  &-marker {
+    height: 12rem;
+    width: 12rem;
+    background-color: $color-primary-light;
+    border-radius: 50%;
+    opacity: 0.3;
+    margin-top: 6rem;
+  }
+}

@@ -1,0 +1,100 @@
+.game-detail {
+  font-size: 1.6rem;
+
+  &__participants {
+    position: relative;
+    margin-top: -5rem;
+    padding: 10rem 2rem 2rem 2rem;
+    z-index: 10;
+    background-color: $color-primary-medium;
+
+    border-end-start-radius: 3rem;
+    border-end-end-radius: 3rem;
+
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.178);
+
+    &-tag {
+      margin-top: 10rem;
+      margin-bottom: 2rem;
+    }
+    &-number {
+      font-size: 1.4rem;
+      color: rgba($color-secondary, 0.4);
+    }
+    &-img {
+      display: flex;
+      min-height: 5rem;
+      margin-bottom: 3rem;
+    }
+
+    &-join {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.info {
+  height: 30%;
+  position: relative;
+  background-color: $color-secondary;
+  padding: 4rem 2rem;
+  color: $color-primary-medium;
+
+  border-end-start-radius: 3rem;
+  border-end-end-radius: 3rem;
+  z-index: 20;
+
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.178);
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  &__host {
+    display: flex;
+    align-items: center;
+
+    &-desc {
+      margin-left: 1rem;
+    }
+    &-name {
+      font-weight: bold;
+    }
+    &-tag {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: $color-primary-dark;
+    }
+  }
+
+  &__back-arrow {
+    cursor: pointer;
+    color: $color-primary-dark;
+  }
+
+  &__description {
+    width: 80%;
+    padding: 2rem 0;
+    text-align: center;
+    background-color: $color-secondary;
+    box-shadow: 0 0 5px 0px rgba($color-primary-medium, 0.2);
+
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &-text {
+      padding: 2rem;
+    }
+
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+  }
+}

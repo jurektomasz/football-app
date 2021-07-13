@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5rem;
+  width: 100%;
+  background-color: transparent;
+  font-size: 2rem;
+
+  &__user {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #f1edee;
+  &:hover {
+    color: $color-primary-light;
+  }
+}
+
+.nav-pills .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.active {
+  background: none;
+  color: $color-primary-light;
+}
+
+.logo {
+  font-family: "Caveat", cursive;
+  font-size: 4rem;
+  color: #f1edee;
+}
+
+.dropdown {
+  &-item {
+    font-size: 2rem;
+  }
+  &-menu {
+    border-radius: 1rem;
+    left: -9rem;
+  }
+}

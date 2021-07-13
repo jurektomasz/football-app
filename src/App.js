@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
 
-function App() {
+import Header from "./components/shared/Header";
+import Routes from "./Routes";
+
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { AuthProvider, useAuth } from "./providers/AuthProvider";
+import { MapProvider } from "./providers/MapProvider";
+
+import initStore from "./redux/initStore";
+
+const store = initStore();
+
+const Providers = ({ children }) => (
+  <Provider store={store}>
+    <AuthProvider>
+      <MapProvider apiKey="pA9zrqHAOC33Gqtl73Wx4MuuyzUXgZPj">
+        {children}
+      </MapProvider>
+    </AuthProvider>
+  </Provider>
+);
+
+const FBApp = () => {
+  const authService = useAuth();
+
+  useEffect(() => {
+    authService.checkAuthState();
+  }, [authService]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="landing">
+        <Header logout={authService.signOut} />
+        <Routes />
+      </div>
+    </Router>
   );
-}
+};
+
+const App = () => {
+  return (
+    <Providers>
+      <FBApp />
+    </Providers>
+  );
+};
 
 export default App;

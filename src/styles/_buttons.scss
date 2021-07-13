@@ -1,0 +1,80 @@
+.btn {
+  font-size: 2rem;
+
+  &-primary {
+    color: $color-primary-medium;
+    border-radius: 5rem;
+    background-color: $color-primary-light;
+    transition: all 0.3s ease-in-out;
+
+    &--small {
+      border-radius: 1rem;
+      font-size: 1.6rem;
+      padding: 0.5rem 1rem;
+    }
+
+    &:hover {
+      color: $color-primary-light;
+      border-color: $color-primary-light;
+      background-color: transparent;
+    }
+  }
+  &-secondary {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    color: $color-primary-light;
+    border-color: $color-primary-light;
+    background-color: transparent;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: $color-primary-dark;
+      background-color: $color-primary-light;
+      border-color: $color-primary-dark;
+    }
+  }
+  &-info {
+    background-color: transparent;
+    color: $color-primary-light;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 0 1rem;
+    font-size: 1.6rem;
+    &:hover {
+      color: $color-primary-dark;
+      background-color: $color-primary-light;
+    }
+  }
+  &-success,
+  &-danger {
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  &-success {
+    background-color: $color-success;
+
+    &:hover {
+      color: $color-success;
+      border-color: $color-success;
+    }
+  }
+  &-danger {
+    background-color: $color-danger;
+
+    &:hover {
+      color: $color-danger;
+      border-color: $color-danger;
+    }
+  }
+}
+
+// .edit-buttons__container {
+//   display: flex;
+//   width: 30%;
+//   justify-content: space-evenly;
+// }

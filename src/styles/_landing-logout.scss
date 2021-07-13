@@ -1,0 +1,26 @@
+.landing {
+  min-height: 100vh;
+
+  background-image: radial-gradient(at top right, #013c68, #010120);
+  background-blend-mode: multiply;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.welcome {
+  min-height: 80vh;
+
+  &-txt {
+    font-size: 8rem;
+    color: $color-primary-light;
+    font-weight: bold;
+  }
+}
