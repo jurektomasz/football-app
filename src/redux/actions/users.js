@@ -6,7 +6,7 @@ export function loadUsers() {
   return function (dispatch) {
     dispatch({ type: "REQUEST_DATA", resource: "users" });
     return fbAxios
-      .get("http://localhost:3000/api/v1/users")
+      .get("/users")
       .then((res) => {
         const users = res.data;
         dispatch({ type: "REQUEST_DATA_COMPLETE", resource: "users" });

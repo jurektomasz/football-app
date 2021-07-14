@@ -2,9 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;900&display=swap");
 
 @import "./variables";
+
+@mixin media-sm {
+  @media screen and (max-width: 29em) {
+    @content;
+  }
+}
+
 @import "./buttons";
 @import "./nav";
-@import "./landing-logout";
+@import "./landing";
 @import "./headings";
 @import "./form";
 @import "./games-list";
@@ -13,6 +20,8 @@
 @import "./create-game";
 @import "./map";
 @import "./spinner";
+@import "./edit";
+@import "./not-found";
 
 @import "@tomtom-international/web-sdk-maps";
 
@@ -27,6 +36,10 @@ body {
   font-size: 10px;
   font-family: "Roboto Slab", serif;
   color: $color-primary-light;
+
+  @include media-sm {
+    font-size: 8px;
+  }
 }
 
 .container {

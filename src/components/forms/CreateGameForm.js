@@ -93,7 +93,7 @@ const CreateGameForm = ({ onSubmit }) => {
       <div className="form-group">
         <input
           ref={register({ required: true })}
-          name="address"
+          name="place"
           type="text"
           className="form__input"
           id="createStreet"
@@ -102,9 +102,9 @@ const CreateGameForm = ({ onSubmit }) => {
         <label className="form__label" htmlFor="createStreet">
           Place
         </label>
-        {errors.address && (
+        {errors.place && (
           <div className="alert alert-danger">
-            {errors.address.type === "required" && <span>Street required</span>}
+            {errors.place.type === "required" && <span>Street required</span>}
           </div>
         )}
       </div>

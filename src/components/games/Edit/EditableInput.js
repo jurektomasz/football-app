@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { displayDate } from "components/helpers";
 
-const EditableInput = ({ type, entity, field, className, onUpdate }) => {
+const EditableInput = ({ type, entity, field, onUpdate }) => {
   const [dateValue, setDateValue] = useState(displayDate(entity[field]));
   const [value, setValue] = useState(entity[field]);
   const [originValue, setOriginValue] = useState(entity[field]);
@@ -36,43 +36,44 @@ const EditableInput = ({ type, entity, field, className, onUpdate }) => {
     if (isActiveInput) {
       return (
         <>
-          <input
-            type={type}
-            onChange={handleChange}
-            className={className}
-            value={value}
-          />
           <span className="btn-container">
-            <button onClick={update} className="btn btn-success btn-editable">
+            <button
+              onClick={update}
+              className="btn btn-success btn-editable mr-2"
+            >
               SAVE
             </button>
             <button
               onClick={disableInput}
-              className="btn btn-danger btn-editable"
+              className="btn btn-danger btn-editable mr-2"
             >
               CANCEL
             </button>
           </span>
+          <input
+            type={type}
+            onChange={handleChange}
+            className="edit__input"
+            value={value}
+          />
         </>
       );
     }
 
     return (
       <>
-        <span className={className}>{type === "date" ? dateValue : value}</span>
-        <span className="btn-container">
-          <button
-            onClick={activateInput}
-            className="btn btn-warning btn-editable"
-          >
-            EDIT
-          </button>
+        <button onClick={activateInput} className="btn btn-warning ml-2">
+          {`EDIT ${field === "maxParticipants" ? "max" : field}`}
+        </button>
+        <span className="info__description-text">
+          {type === "date" ? dateValue : value}
         </span>
+        <span className="btn-container"></span>
       </>
     );
   };
 
-  return <div>{renderComponentView()}</div>;
+  return <div className="edit">{renderComponentView()}</div>;
 };
 
 export default EditableInput;

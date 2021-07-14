@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/dev");
+const config = require("../config");
 const User = require("../models/user");
 
 exports.login = (req, res) => {

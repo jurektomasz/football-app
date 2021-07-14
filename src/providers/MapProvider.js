@@ -30,6 +30,17 @@ export function MapProvider({ children, apiKey }) {
       .addTo(map);
   };
 
+  const addPopupMessage = (map, message) => {
+    new tt.Popup({
+      className: "bwm-popup",
+      closeButton: false,
+      closeOnClick: false,
+    })
+      .setLngLat(new tt.LngLat(0, 0))
+      .setHTML(`<p>${message}</p>`)
+      .addTo(map);
+  };
+
   const requestGeoLocation = (location) => {
     return axios
       .get(
@@ -51,6 +62,7 @@ export function MapProvider({ children, apiKey }) {
     requestGeoLocation,
     setCenter,
     addMarker,
+    addPopupMessage,
   };
 
   return <MapContext.Provider value={mapApi}>{children}</MapContext.Provider>;

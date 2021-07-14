@@ -1,0 +1,24 @@
+.landing {
+  min-height: 100vh;
+
+  background-image: url("./img/bg-player.png"),
+    radial-gradient(at top right, #013c68, #010120);
+  background-blend-mode: multiply;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.welcome {
+  min-height: 80vh;
+
+  &-txt {
+    font-size: 8rem;
+    color: $color-primary-light;
+    font-weight: bold;
+
+    @include media-sm {
+      font-size: 5rem;
+    }
+  }
+}

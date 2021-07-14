@@ -58,7 +58,7 @@ const Participants = ({
             className={
               participants.length < maxParticipants
                 ? "btn btn-primary btn-primary--small"
-                : "btn btn-secondary btn-secondary-inactive"
+                : "btn btn-primary btn-primary--small btn-primary--disabled"
             }
             onClick={handleJoin}
           >

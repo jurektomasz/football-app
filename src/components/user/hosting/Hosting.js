@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { loadHosting, deleteGame } from "redux/actions";
 import { loadUsers } from "redux/actions";
@@ -8,6 +8,7 @@ import Spinner from "components/spinner/Spinner";
 import { renderGames } from "components/helpers/renderGames";
 
 const Hosting = ({ dispatch, games, isFetching }) => {
+  const [message, setMessage] = useState("");
   useEffect(() => {
     dispatch(loadUsers());
     dispatch(loadHosting());
@@ -18,7 +19,9 @@ const Hosting = ({ dispatch, games, isFetching }) => {
     if (!canDelete) {
       return;
     }
-    dispatch(deleteGame(id));
+    dispatch(deleteGame(id))
+      .then(() => setMessage("Successfully deleted!"))
+      .catch(() => setMessage("Something went wrong. Try again later."));
   }
 
   function askForPermission() {
@@ -26,7 +29,7 @@ const Hosting = ({ dispatch, games, isFetching }) => {
   }
 
   const renderMenu = (game) => (
-    <div className="edit-buttons__container mb-3 d-flex w-50 justify-content-around">
+    <div className="d-flex w-50 justify-content-around mb-3">
       <Link
         to={{ pathname: `/games/${game._id}/edit` }}
         className="btn btn-success btn-sm"
@@ -47,7 +50,7 @@ const Hosting = ({ dispatch, games, isFetching }) => {
   ) : (
     <div className="card-list">
       <h1 className="page-title">games you are hosting</h1>
-
+      {message && <div className="alert alert-success">{message}</div>}
       <div className="row">{renderGames(games, renderMenu)}</div>
     </div>
   );

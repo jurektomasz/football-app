@@ -1,20 +1,25 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 
 import { useMap } from "providers/MapProvider";
 
 export default function TomMap({ location }) {
-  const { initMap, requestGeoLocation, setCenter, addMarker } = useMap();
-  let map;
+  const { initMap, requestGeoLocation, setCenter, addMarker, addPopupMessage } =
+    useMap();
+  let map = useRef();
 
   const getGeoLocation = useCallback(
     (location) => {
       location &&
-        requestGeoLocation(location).then((position) => {
-          setCenter(map, position);
-          addMarker(map, position);
-        });
+        requestGeoLocation(location)
+          .then((position) => {
+            setCenter(map.current, position);
+            addMarker(map.current, position);
+          })
+          .catch((error) => {
+            addPopupMessage(map.current, error);
+          });
     },
-    [requestGeoLocation]
+    [requestGeoLocation, addMarker, setCenter, map, addPopupMessage]
   );
 
   useEffect(() => {
@@ -22,7 +27,7 @@ export default function TomMap({ location }) {
   }, [location, getGeoLocation]);
 
   useEffect(() => {
-    map = initMap();
+    map.current = initMap();
   }, [initMap]);
 
   return <div className="map-container" id="map"></div>;

@@ -3,15 +3,11 @@ import { extractApiErrors } from "./index";
 const { fbAxios } = axiosService;
 
 export const verifyGameHost = (gameId) => {
-  return fbAxios.get(
-    `http://localhost:3000/api/v1/games/${gameId}/verify-host`
-  );
+  return fbAxios.get(`/games/${gameId}/verify-host`);
 };
 
 export const loadGames = (location) => (dispatch) => {
-  const query = location
-    ? `http://localhost:3000/api/v1/games?city=${location}`
-    : "http://localhost:3000/api/v1/games";
+  const query = location ? `/games?city=${location}` : "/games";
   dispatch({ type: "REQUEST_DATA", resource: "games" });
   fbAxios.get(query).then((res) => {
     const games = res.data;
@@ -22,7 +18,7 @@ export const loadGames = (location) => (dispatch) => {
 export const loadHosting = () => (dispatch) => {
   dispatch({ type: "REQUEST_DATA", resource: "manage-games" });
   return fbAxios
-    .get("http://localhost:3000/api/v1/games/hosting")
+    .get("/games/hosting")
     .then((res) => res.data)
     .then((games) => {
       dispatch({
@@ -44,7 +40,7 @@ export function loadParticipating() {
   return function (dispatch) {
     dispatch({ type: "REQUEST_DATA", resource: "manage-games" });
     return fbAxios
-      .get("http://localhost:3000/api/v1/games/participating")
+      .get("/games/participating")
       .then((res) => res.data)
       .then((games) => {
         dispatch({
@@ -65,7 +61,7 @@ export function loadParticipating() {
 
 export const loadGameById = (id) => async (dispatch) => {
   dispatch({ type: "REQUEST_DATA", resource: "game" });
-  const res = await fbAxios.get(`http://localhost:3000/api/v1/games/${id}`);
+  const res = await fbAxios.get(`/games/${id}`);
   dispatch({ type: "REQUEST_DATA_COMPLETE", resource: "game" });
   const game = await res.data;
   dispatch({

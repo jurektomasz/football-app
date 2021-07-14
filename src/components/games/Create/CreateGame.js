@@ -15,7 +15,12 @@ const CreateGame = () => {
   };
 
   return shouldRedirect ? (
-    <Redirect to={{ pathname: "/" }} />
+    <Redirect
+      to={{
+        pathname: "/",
+        state: { message: "New event has been successfully created!" },
+      }}
+    />
   ) : (
     <>
       <div className="row">

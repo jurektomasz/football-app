@@ -30,58 +30,52 @@ const GameEdit = ({ match, dispatch, game }) => {
     <Spinner />
   ) : (
     <div className="game-detail">
-      <h1>EDIT PAGE</h1>
       <div className="info">
-        <button className="btn btn-success" onClick={() => history.goBack()}>
-          <FontAwesomeIcon icon="arrow-left" className="info__back-arrow" />
-        </button>
-
         <div className="info__heading">
+          <button className="btn" onClick={() => history.goBack()}>
+            <FontAwesomeIcon icon="arrow-left" className="info__back-arrow" />
+          </button>
           <div className="info__host">
+            <div className="info__host-desc">
+              <div className="info__host-name">{game.host.username}</div>
+              <div className="info__host-tag">Organizer</div>
+            </div>
             <img
               src={game.host.image}
               alt="{host.image}"
               className="card-heading__participants-image info__host-img"
             />
-            <div className="info__host-desc">
-              <div className="info__host-name">{game.host.username}</div>
-              <div className="info__host-tag">Organizer</div>
-            </div>
           </div>
         </div>
         <div className="info__description">
           <div className="card-heading__location">
             <EditableInput
               type="text"
-              className={"info__description-text"}
               entity={game}
-              field={"address"}
+              field={"place"}
               onUpdate={saveChanges}
             />
             <EditableInput
               type="text"
-              className={"info__description-text"}
               entity={game}
               field={"city"}
               onUpdate={saveChanges}
             />
           </div>
-          <div className="info__description-text">
+          <div className="info__description-text edit__desc">
             <EditableInput
               type="text"
-              className={"info__description-text"}
               entity={game}
               field={"description"}
               onUpdate={saveChanges}
             />
           </div>
-          <div className="card-tags">
+          <div className="card-tags edit__tags">
             <div className="tag tag__time">
               <FontAwesomeIcon icon="clock" className="tag__icon" />
-              <span className="tag__description">
+              <span className="tag__description edit__tag">
                 <EditableInput
                   type="time"
-                  className={"info__description-text"}
                   entity={game}
                   field={"time"}
                   onUpdate={saveChanges}
@@ -90,10 +84,9 @@ const GameEdit = ({ match, dispatch, game }) => {
             </div>
             <div className="tag tag__date">
               <FontAwesomeIcon icon="calendar-alt" className="tag__icon" />
-              <span className="tag__description">
+              <span className="tag__description edit__tag">
                 <EditableInput
                   type="date"
-                  className={"info__description-text"}
                   entity={game}
                   field={"date"}
                   onUpdate={saveChanges}
@@ -102,10 +95,9 @@ const GameEdit = ({ match, dispatch, game }) => {
             </div>
             <div className="tag tag__max-participants">
               <FontAwesomeIcon icon="user" className="tag__icon" />
-              <span className="tag__description">
+              <span className="tag__description edit__tag">
                 <EditableInput
                   type="number"
-                  className={"info__description-text"}
                   entity={game}
                   field={"maxParticipants"}
                   onUpdate={saveChanges}
@@ -114,10 +106,9 @@ const GameEdit = ({ match, dispatch, game }) => {
             </div>
             <div className="tag tag__price">
               <FontAwesomeIcon icon="pound-sign" className="tag__icon" />
-              <span className="tag__description">
+              <span className="tag__description edit__tag">
                 <EditableInput
                   type="number"
-                  className={"info__description-text"}
                   entity={game}
                   field={"price"}
                   onUpdate={saveChanges}

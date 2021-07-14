@@ -29,9 +29,9 @@ const GameDetail = ({ game, auth, dispatch, match }) => {
 
   const location = () => {
     const {
-      gameById: { address, city },
+      gameById: { place, city },
     } = game;
-    return address && city && address + ", " + city;
+    return place && city && place + ", " + city;
   };
 
   return game.isFetching || !game.gameById._id ? (
@@ -39,28 +39,27 @@ const GameDetail = ({ game, auth, dispatch, match }) => {
   ) : (
     <div className="game-detail">
       <div className="info">
-        <button className="btn btn-success" onClick={handleBackClick}>
-          <FontAwesomeIcon icon="arrow-left" className="info__back-arrow" />
-        </button>
-
         <div className="info__heading">
+          <button className="btn" onClick={handleBackClick}>
+            <FontAwesomeIcon icon="arrow-left" className="info__back-arrow" />
+          </button>
           <div className="info__host">
-            <img
-              src={game.gameById.host.image}
-              alt="{host.image}"
-              className="card-heading__participants-image info__host-img"
-            />
             <div className="info__host-desc">
               <div className="info__host-name">
                 {capitalize(game.gameById.host.username)}
               </div>
               <div className="info__host-tag">Host</div>
             </div>
+            <img
+              src={game.gameById.host.image}
+              alt="{host.image}"
+              className="card-heading__participants-image info__host-img"
+            />
           </div>
         </div>
         <div className="info__description">
           <div className="card-heading__location">
-            {`${capitalize(game.gameById.address)}, ${capitalize(
+            {`${capitalize(game.gameById.place)}, ${capitalize(
               game.gameById.city
             )}`}
           </div>

@@ -120,14 +120,6 @@ exports.deleteGame = async (req, res) => {
       });
     }
 
-    if (game.participants.length === game.maxParticipants) {
-      return res.sendApiError({
-        status: 422,
-        title: "Game error",
-        detail: "There is already full squad.",
-      });
-    }
-
     for (userIndex of game.participants) {
       const userUpdate = await User.findById(userIndex);
 

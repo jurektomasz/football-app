@@ -16,7 +16,7 @@ const GamesSearchInput = () => {
   };
 
   return (
-    <div className="input-group mx-auto w-50">
+    <div className="input-group input-group--search mx-auto">
       <input
         onKeyPress={handleKeyPress}
         onChange={(e) => setLocation(e.target.value)}

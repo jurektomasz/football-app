@@ -8,7 +8,7 @@ const gameSchema = new Schema({
   price: { type: Number, required: true },
   maxParticipants: { type: Number, required: true },
   participants: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  address: { type: String, required: true, lowercase: true },
+  place: { type: String, required: true, lowercase: true },
   city: { type: String, required: true, lowercase: true },
   description: { type: String, maxlength: 160 },
   createdAt: { type: Date, default: Date.now },
