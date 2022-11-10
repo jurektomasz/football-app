@@ -55,7 +55,7 @@ exports.users = [
 exports.games = [
   {
     _id: gameId1,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId1,
     price: 0,
@@ -67,7 +67,7 @@ exports.games = [
   },
   {
     _id: gameId2,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId2,
     price: 3,
@@ -80,7 +80,7 @@ exports.games = [
   },
   {
     _id: gameId3,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId2,
     price: 0,
@@ -92,7 +92,7 @@ exports.games = [
   },
   {
     _id: gameId4,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId4,
     price: 0,
@@ -104,7 +104,7 @@ exports.games = [
   },
   {
     _id: gameId5,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId2,
     price: 0,
@@ -116,7 +116,7 @@ exports.games = [
   },
   {
     _id: gameId6,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId4,
     price: 0,
@@ -128,7 +128,7 @@ exports.games = [
   },
   {
     _id: gameId7,
-    date: "2021-09-04",
+    date: "2022-12-04",
     time: "12:00",
     host: userId2,
     price: 0,
